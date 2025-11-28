@@ -18,6 +18,73 @@ A curated collection of my development work ranging from full-stack applications
 
 ---
 
+## ⭐ Top Projects
+
+<table>
+  <thead>
+    <tr>
+      <th align="center">🌟</th>
+      <th>Project Name</th>
+      <th>Description</th>
+      <th align="center">Links</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center">⭐⭐⭐⭐⭐</td>
+      <td><strong>Full-Stack Portfolio Website</strong></td>
+      <td>A complete portfolio website with an admin control panel to manage your content.</td>
+      <td align="center">
+        <a href="https://www.gu-saurabh.site/" target="_blank">
+          <img src="https://img.shields.io/badge/Live-0077B5?style=flat&logo=google-chrome&logoColor=white" alt="Live"/>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">⭐⭐⭐⭐⭐</td>
+      <td><strong>MegaBasket E-commerce Platform</strong></td>
+      <td>Full-featured e-commerce platform with user, admin, cart, and order tracking functionality.</td>
+      <td align="center">
+        <a href="https://www.megabasket.me/" target="_blank">
+          <img src="https://img.shields.io/badge/Live-00C851?style=flat&logo=google-chrome&logoColor=white" alt="Live"/>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">⭐⭐⭐⭐⭐</td>
+      <td><strong>Certificate Generation Platform</strong></td>
+      <td>Fully automated certificate generation and verification platform.</td>
+      <td align="center">
+        <a href="https://galgotias-university-certificate.vercel.app/" target="_blank">
+          <img src="https://img.shields.io/badge/Live-FF6F00?style=flat&logo=google-chrome&logoColor=white" alt="Live"/>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">⭐⭐⭐⭐⭐</td>
+      <td><strong>Real Time Chat Application</strong></td>
+      <td>Real-time chat app to message friends instantly with profile creation and online status.</td>
+      <td align="center">
+        <a href="https://master.d1mxcnht7o30t1.amplifyapp.com/" target="_blank">
+          <img src="https://img.shields.io/badge/Live-9C27B0?style=flat&logo=google-chrome&logoColor=white" alt="Live"/>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">⭐⭐⭐⭐⭐</td>
+      <td><strong>Ecommerce Admin Panel</strong></td>
+      <td>Admin dashboard to manage products, users, and orders.</td>
+      <td align="center">
+        <a href="https://main.dp7wscejbjmk.amplifyapp.com/" target="_blank">
+          <img src="https://img.shields.io/badge/Live-D32F2F?style=flat&logo=google-chrome&logoColor=white" alt="Live"/>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
 ## 📦 Project Portfolio (Table Format)
 
 | #  | Project Name                     | Date       | Description                                                                                      | Live Link                                                                 | GitHub Link                                                                    |
