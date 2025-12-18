@@ -18,7 +18,7 @@ A curated collection of my development work ranging from full-stack applications
 
 ---
 
-## ⭐ Top Projects
+## ⭐ Top 5 Projects (Personal)
 
 <table>
   <thead>
@@ -85,7 +85,7 @@ A curated collection of my development work ranging from full-stack applications
 
 ---
 
-## 📦 Project Portfolio (Table Format)
+## � My All Projects List
 
 | #  | Project Name                     | Date       | Description                                                                                      | Live Link                                                                 | GitHub Link                                                                    |
 |----|----------------------------------|------------|--------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|---------------------------------------------------------------------------------|
@@ -116,6 +116,81 @@ A curated collection of my development work ranging from full-stack applications
 | 25 | Flight Travel Webpage            | Sep 2024   | Air India flight booking web page UI (incomplete).                                               | [Live](https://saurabhtbj1201.github.io/Travel-website-by-Saurabh/)       | [GitHub](https://github.com/Saurabhtbj1201/Travel-website-by-Saurabh)          |
 | 26 | Animated Login Page              | Feb 2024   | Responsive login UI with animations.                                                            | [Live](https://saurabhtbj1201.github.io/Animated-Login-Page-by-Saurabh/) | [GitHub](https://github.com/Saurabhtbj1201/Animated-Login-Page-by-Saurabh)     |
 | 27 | Tic-Tac-Toe Game                 | Dec 2023   | Basic TIC-TAC-TOE game built with Python.                                                        | –                                                                         | [GitHub](https://github.com/Saurabhtbj1201/tic-tac-toe)         |
+
+---
+
+## 🏢 Client Projects Portfolio
+
+<div align="center">
+
+### *Delivering Excellence for Businesses & Institutions*
+
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th align="center">🎯</th>
+      <th>Project Name</th>
+      <th>Category</th>
+      <th align="center">Live Site</th>
+      <th>Tech Stack</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center">🏨</td>
+      <td><strong>Arya Boys PG</strong></td>
+      <td><em>Hostel & PG Management</em></td>
+      <td align="center">
+        <a href="https://www.aryapg.com/" target="_blank">
+          <img src="https://img.shields.io/badge/Visit_Site-FF6B6B?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Visit Site"/>
+        </a>
+      </td>
+      <td>
+        <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white" alt="HTML"/>
+        <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white" alt="CSS"/>
+        <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black" alt="JavaScript"/>
+        <img src="https://img.shields.io/badge/EmailJS-0077B5?style=flat&logo=gmail&logoColor=white" alt="EmailJS"/>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">🏨</td>
+      <td><strong>Shree Radha Krishna Hostel</strong></td>
+      <td><em>Premium Hostel Services</em></td>
+      <td align="center">
+        <a href="https://www.shreeradhakrishnahostel.com" target="_blank">
+          <img src="https://img.shields.io/badge/Visit_Site-4ECDC4?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Visit Site"/>
+        </a>
+      </td>
+      <td>
+        <img src="https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black" alt="React"/>
+        <img src="https://img.shields.io/badge/EmailJS-0077B5?style=flat&logo=gmail&logoColor=white" alt="EmailJS"/>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">🚀</td>
+      <td><strong>Aayup Technology</strong></td>
+      <td><em>Startup Company Website</em></td>
+      <td align="center">
+        <a href="https://www.aayuptechnology.com" target="_blank">
+          <img src="https://img.shields.io/badge/Visit_Site-9B59B6?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Visit Site"/>
+        </a>
+      </td>
+      <td>
+        <img src="https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black" alt="React"/>
+        <img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white" alt="Node.js"/>
+        <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white" alt="SQL"/>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div align="center">
+
+*🌟 Trusted by Hostels, Startups, and Institutions for their digital presence*
+
+</div>
 
 ---
 
