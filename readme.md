@@ -174,7 +174,7 @@ A curated collection of my development work ranging from full-stack applications
       <td><strong>Aayup Technology</strong></td>
       <td><em>Startup Company Website</em></td>
       <td align="center">
-        <a href="https://www.aayuptechnology.com" target="_blank">
+        <a href="https://www.aayuptechnologies.com" target="_blank">
           <img src="https://img.shields.io/badge/Visit_Site-9B59B6?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Visit Site"/>
         </a>
       </td>
