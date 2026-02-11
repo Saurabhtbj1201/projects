@@ -8,36 +8,36 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Warm, sophisticated palette inspired by the design */
-    --background: 36 44% 96%;
-    --foreground: 0 0% 18%;
+    /* Clean white professional palette */
+    --background: 0 0% 100%;
+    --foreground: 220 20% 14%;
 
-    --card: 33 40% 94%;
-    --card-foreground: 0 0% 18%;
+    --card: 220 14% 97%;
+    --card-foreground: 220 20% 14%;
 
-    --popover: 36 44% 96%;
-    --popover-foreground: 0 0% 18%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 14%;
 
-    --primary: 0 0% 18%;
-    --primary-foreground: 36 44% 96%;
+    --primary: 220 20% 14%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 25 30% 70%;
-    --secondary-foreground: 0 0% 18%;
+    --secondary: 220 14% 92%;
+    --secondary-foreground: 220 20% 14%;
 
-    --muted: 33 30% 88%;
-    --muted-foreground: 0 0% 40%;
+    --muted: 220 14% 95%;
+    --muted-foreground: 220 10% 46%;
 
-    --accent: 25 30% 55%;
-    --accent-foreground: 36 44% 96%;
+    --accent: 220 80% 56%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 36 44% 96%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 33 25% 85%;
-    --input: 33 25% 85%;
-    --ring: 0 0% 18%;
+    --border: 220 14% 90%;
+    --input: 220 14% 90%;
+    --ring: 220 80% 56%;
 
-    --radius: 1rem;
+    --radius: 0.5rem;
 
     /* Toast tokens */
     --toast-success: 142 76% 36%;
@@ -54,50 +54,49 @@ All colors MUST be HSL.
     --toast-warning-bg: 38 92% 96%;
 
     /* Custom design tokens */
-    --tag-financing: 210 50% 75%;
-    --tag-lifestyle: 140 20% 70%;
-    --tag-community: 25 35% 60%;
-    --tag-wellness: 280 30% 75%;
-    --tag-travel: 195 50% 70%;
-    --tag-creativity: 330 40% 75%;
-    --tag-growth: 50 45% 70%;
+    --tag-financing: 210 50% 92%;
+    --tag-lifestyle: 140 30% 92%;
+    --tag-community: 25 35% 92%;
+    --tag-wellness: 280 30% 92%;
+    --tag-travel: 195 50% 92%;
+    --tag-creativity: 330 40% 92%;
+    --tag-growth: 50 45% 92%;
 
     /* Polish design tokens */
-    --cream: 40 40% 90%;
-    --cream-foreground: 0 0% 18%;
-    --surface-elevated: 36 44% 98%;
-    --shadow-soft: 0 0% 0%;
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --cream: 220 14% 96%;
+    --cream-foreground: 220 20% 14%;
+    --surface-elevated: 0 0% 100%;
+    --shadow-soft: 220 20% 14%;
   }
 
   .dark {
-    --background: 0 0% 10%;
-    --foreground: 36 44% 96%;
+    --background: 220 20% 8%;
+    --foreground: 220 14% 95%;
 
-    --card: 0 0% 14%;
-    --card-foreground: 36 44% 96%;
+    --card: 220 20% 12%;
+    --card-foreground: 220 14% 95%;
 
-    --popover: 0 0% 10%;
-    --popover-foreground: 36 44% 96%;
+    --popover: 220 20% 8%;
+    --popover-foreground: 220 14% 95%;
 
-    --primary: 36 44% 96%;
-    --primary-foreground: 0 0% 18%;
+    --primary: 220 14% 95%;
+    --primary-foreground: 220 20% 8%;
 
-    --secondary: 25 15% 30%;
-    --secondary-foreground: 36 44% 96%;
+    --secondary: 220 15% 20%;
+    --secondary-foreground: 220 14% 95%;
 
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 60%;
+    --muted: 220 15% 18%;
+    --muted-foreground: 220 10% 55%;
 
-    --accent: 25 25% 40%;
-    --accent-foreground: 36 44% 96%;
+    --accent: 220 80% 60%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62% 50%;
-    --destructive-foreground: 36 44% 96%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 36 44% 96%;
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 220 80% 60%;
 
     /* Dark mode toast tokens */
     --toast-success: 142 76% 45%;
@@ -114,18 +113,18 @@ All colors MUST be HSL.
     --toast-warning-bg: 38 40% 15%;
 
     /* Dark mode tag colors */
-    --tag-financing: 210 40% 45%;
-    --tag-lifestyle: 140 20% 40%;
-    --tag-community: 25 30% 40%;
-    --tag-wellness: 280 25% 45%;
-    --tag-travel: 195 40% 45%;
-    --tag-creativity: 330 35% 45%;
-    --tag-growth: 50 40% 45%;
+    --tag-financing: 210 40% 25%;
+    --tag-lifestyle: 140 20% 25%;
+    --tag-community: 25 30% 25%;
+    --tag-wellness: 280 25% 25%;
+    --tag-travel: 195 40% 25%;
+    --tag-creativity: 330 35% 25%;
+    --tag-growth: 50 40% 25%;
 
     /* Dark mode polish tokens */
-    --cream: 40 20% 25%;
-    --cream-foreground: 36 44% 96%;
-    --surface-elevated: 0 0% 16%;
+    --cream: 220 15% 18%;
+    --cream-foreground: 220 14% 95%;
+    --surface-elevated: 220 20% 12%;
     --shadow-soft: 0 0% 0%;
   }
 }
@@ -143,7 +142,12 @@ All colors MUST be HSL.
     scroll-behavior: smooth;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-serif tracking-tight;
   }
 }
@@ -172,6 +176,7 @@ All colors MUST be HSL.
     from {
       opacity: 0;
     }
+
     to {
       opacity: 1;
     }
@@ -182,6 +187,7 @@ All colors MUST be HSL.
       opacity: 0;
       transform: translateY(20px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -193,6 +199,7 @@ All colors MUST be HSL.
       opacity: 0;
       transform: translateY(-20px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -204,6 +211,7 @@ All colors MUST be HSL.
       opacity: 0;
       transform: scale(0.95);
     }
+
     to {
       opacity: 1;
       transform: scale(1);
@@ -289,5 +297,111 @@ All colors MUST be HSL.
 
   .tag-growth {
     @apply bg-[hsl(var(--tag-growth))] text-primary;
+  }
+
+  /* ===== Prose Content Overrides ===== */
+
+  /* Dark code blocks */
+  .prose pre {
+    @apply bg-gray-900 text-gray-100 rounded-xl p-4 overflow-x-auto relative;
+    font-size: 0.875rem;
+    line-height: 1.7;
+  }
+
+  .prose pre code {
+    @apply bg-transparent text-inherit p-0 rounded-none text-sm;
+    font-family: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  /* Inline code */
+  .prose code {
+    @apply bg-gray-800 text-gray-200 px-1.5 py-0.5 rounded-md text-sm font-normal;
+  }
+
+  .prose code::before,
+  .prose code::after {
+    content: none;
+  }
+
+  /* Code copy button (injected via JS) */
+  .prose pre {
+    position: relative;
+  }
+
+  .code-copy-btn {
+    @apply absolute top-2 right-2 p-1.5 rounded-md bg-gray-700/60 hover:bg-gray-600 text-gray-300 hover:text-white transition-all opacity-0 backdrop-blur-sm;
+    z-index: 10;
+  }
+
+  .prose pre:hover .code-copy-btn {
+    @apply opacity-100;
+  }
+
+  .code-copy-btn.copied {
+    @apply bg-emerald-600/80 text-white opacity-100;
+  }
+
+  /* Lists */
+  .prose ul {
+    @apply list-disc pl-6 space-y-1;
+  }
+
+  .prose ol {
+    @apply list-decimal pl-6 space-y-1;
+  }
+
+  .prose li {
+    @apply text-muted-foreground;
+  }
+
+  .prose li::marker {
+    @apply text-muted-foreground/60;
+  }
+
+  /* Nested lists */
+  .prose ul ul,
+  .prose ol ul {
+    @apply list-[circle] mt-1;
+  }
+
+  .prose ul ol,
+  .prose ol ol {
+    @apply list-[lower-alpha] mt-1;
+  }
+
+  /* Links in prose */
+  .prose a {
+    @apply text-accent underline underline-offset-2 hover:text-accent/80 transition-colors;
+  }
+
+  /* Headings in prose */
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4 {
+    @apply text-foreground font-serif;
+  }
+
+  /* Paragraphs */
+  .prose p {
+    @apply text-muted-foreground leading-relaxed;
+  }
+
+  /* Blockquotes */
+  .prose blockquote {
+    @apply border-l-4 border-accent/40 pl-4 italic text-muted-foreground/80;
+  }
+
+  /* Tables */
+  .prose table {
+    @apply w-full border-collapse;
+  }
+
+  .prose th {
+    @apply bg-muted text-foreground font-semibold text-left px-4 py-2 border-b border-border;
+  }
+
+  .prose td {
+    @apply text-muted-foreground px-4 py-2 border-b border-border/50;
   }
 }

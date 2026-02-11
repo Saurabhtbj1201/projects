@@ -65,6 +65,7 @@ const RichTextEditor = ({ value, onChange, placeholder }: RichTextEditorProps) =
           [{ list: "ordered" }, { list: "bullet" }],
           ["link", "blockquote", "code-block"],
           [{ color: [] }, { background: [] }],
+          ["table"],
           ["clean"],
         ],
       },
@@ -86,6 +87,7 @@ const RichTextEditor = ({ value, onChange, placeholder }: RichTextEditorProps) =
     "color",
     "background",
     "image",
+    "table",
   ];
 
   return (

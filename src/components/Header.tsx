@@ -3,7 +3,7 @@ import { Menu, X, Moon, Sun, Github, Lock, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
 import AdminLoginModal from "./AdminLoginModal";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -59,19 +59,19 @@ const Header = () => {
           <div className="flex items-center justify-between h-14 sm:h-16 pill-nav px-4 sm:px-6">
             {/* Logo */}
             <div className="flex items-center min-w-0">
-              <a href="/" className="flex items-center gap-1.5 sm:gap-2">
-                <div className="w-7 h-7 sm:w-8 sm:h-8 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
+              <Link to="/" className="flex items-center gap-1.5 sm:gap-2">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
                   <span className="text-primary-foreground font-bold text-base sm:text-lg">S</span>
                 </div>
                 <span className="text-base sm:text-xl font-bold font-serif truncate">Saurabh</span>
-              </a>
+              </Link>
             </div>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-2">
-              <a href="/" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">
+              <Link to="/" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">
                 Projects
-              </a>
+              </Link>
               <a 
                 href="https://www.gu-saurabh.site/" 
                 target="_blank" 
@@ -80,9 +80,9 @@ const Header = () => {
               >
                 Portfolio
               </a>
-              <a href="/about" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">
+              <Link to="/about" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">
                 About
-              </a>
+              </Link>
             </nav>
 
             {/* Actions */}
@@ -150,9 +150,9 @@ const Header = () => {
           {isMenuOpen && (
             <div className="md:hidden py-4 mt-2 rounded-2xl bg-card px-4 border border-border animate-fade-in">
               <nav className="flex flex-col gap-4">
-                <a href="/" className="text-sm font-medium hover:text-accent transition-colors">
+                <Link to="/" className="text-sm font-medium hover:text-accent transition-colors" onClick={() => setIsMenuOpen(false)}>
                   Projects
-                </a>
+                </Link>
                 <a 
                   href="https://www.gu-saurabh.site/" 
                   target="_blank" 
@@ -161,9 +161,9 @@ const Header = () => {
                 >
                   Portfolio
                 </a>
-                <a href="/about" className="text-sm font-medium hover:text-accent transition-colors">
+                <Link to="/about" className="text-sm font-medium hover:text-accent transition-colors" onClick={() => setIsMenuOpen(false)}>
                   About
-                </a>
+                </Link>
                 <a
                   href="https://github.com/saurabhtbj1201"
                   target="_blank"

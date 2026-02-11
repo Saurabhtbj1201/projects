@@ -14,16 +14,18 @@ import {
   SidebarTrigger,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { 
-  LayoutDashboard, 
-  FolderKanban, 
-  Settings, 
+import {
+  LayoutDashboard,
+  FolderKanban,
+  Settings,
   Mail,
   Shield,
   LogOut,
   Moon,
   Sun,
-  ExternalLink
+  ExternalLink,
+  GitFork,
+  Users2
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -34,6 +36,8 @@ import { Phone } from "lucide-react";
 const menuItems = [
   { title: "Overview", url: "/admin", icon: LayoutDashboard },
   { title: "Projects", url: "/admin/projects", icon: FolderKanban },
+  { title: "Open Source", url: "/admin/opensource", icon: GitFork },
+  { title: "Contributors", url: "/admin/contributors", icon: Users2 },
   { title: "Reviews", url: "/admin/reviews", icon: MessageSquare },
   { title: "Enquiries", url: "/admin/enquiries", icon: Mail },
   { title: "Contacts", url: "/admin/contacts", icon: Phone },
@@ -46,7 +50,7 @@ const AdminSidebar = () => {
   const collapsed = state === "collapsed";
   const location = useLocation();
   const { signOut, user } = useAuth();
-  const [isDark, setIsDark] = useState(() => 
+  const [isDark, setIsDark] = useState(() =>
     document.documentElement.classList.contains("dark")
   );
 

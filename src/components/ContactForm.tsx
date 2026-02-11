@@ -97,7 +97,7 @@ const ContactForm = ({ projectId, projectName }: ContactFormProps) => {
   };
 
   return (
-    <div className="rounded-3xl bg-card border border-border p-8">
+    <div className="rounded-lg bg-card border border-border p-6">
       <h3 className="text-2xl font-bold font-serif mb-2">Want to ask anything?</h3>
       <p className="text-muted-foreground mb-6">
         Have questions about <span className="font-medium text-foreground">{projectName}</span>? Need help? Let me know!
@@ -175,7 +175,7 @@ const ContactForm = ({ projectId, projectName }: ContactFormProps) => {
           {errors.message && <p className="text-sm text-destructive">{errors.message}</p>}
         </div>
 
-        <Button type="submit" className="w-full rounded-full" disabled={isSubmitting}>
+        <Button type="submit" className="w-full rounded" disabled={isSubmitting}>
           {isSubmitting ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />

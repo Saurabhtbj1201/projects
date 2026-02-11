@@ -4,6 +4,8 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import AdminSidebar from "@/components/admin/AdminSidebar";
 import DashboardOverview from "@/components/admin/DashboardOverview";
 import ProjectsManager from "@/components/admin/ProjectsManager";
+import OpenSourceProjectsManager from "@/components/admin/OpenSourceProjectsManager";
+import ContributorsManager from "@/components/admin/ContributorsManager";
 import ContactsManager from "@/components/admin/ContactsManager";
 import AdminsManager from "@/components/admin/AdminsManager";
 import SiteSettingsManager from "@/components/admin/SiteSettingsManager";
@@ -40,6 +42,8 @@ const Admin = () => {
   const getActiveSection = () => {
     const path = location.pathname;
     if (path === "/admin/projects") return "projects";
+    if (path === "/admin/opensource") return "opensource";
+    if (path === "/admin/contributors") return "contributors";
     if (path === "/admin/reviews") return "reviews";
     if (path === "/admin/enquiries") return "enquiries";
     if (path === "/admin/contacts") return "contacts";
@@ -85,7 +89,7 @@ const Admin = () => {
 
       setProjects(projectsRes.data || []);
       setSubmissions(submissionsRes.data || []);
-      
+
       // Map reviews with project names
       const reviewsWithNames = (reviewsRes.data || []).map((r: any) => ({
         ...r,
@@ -126,6 +130,10 @@ const Admin = () => {
     switch (activeSection) {
       case "projects":
         return <ProjectsManager projects={projects} onRefresh={fetchData} />;
+      case "opensource":
+        return <OpenSourceProjectsManager />;
+      case "contributors":
+        return <ContributorsManager />;
       case "reviews":
         return <ReviewsManager />;
       case "enquiries":
