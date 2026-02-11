@@ -7,10 +7,12 @@ import SEOHead from "@/components/SEOHead";
 import ProjectReviews from "@/components/ProjectReviews";
 import ImageCarousel from "@/components/ImageCarousel";
 import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { supabase } from "@/integrations/supabase/client";
 import { Project } from "@/types/project";
 import { format } from "date-fns";
-import { ArrowLeft, ExternalLink, Github, Star, Calendar, Loader2, User, List } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github, Star, Calendar, Loader2, User, Users, List } from "lucide-react";
+import { CoolMode } from "@/components/ui/cool-mode";
 
 const statusColors = {
   completed: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700",
@@ -87,6 +89,30 @@ const ProjectDetail = () => {
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  // Parse contributors and get GitHub avatars
+  interface Contributor {
+    name: string;
+    github_link?: string;
+  }
+
+  const contributors: Contributor[] = project
+    ? (project.contributors
+      ? (typeof (project as any).contributors === 'string'
+        ? JSON.parse((project as any).contributors)
+        : (project as any).contributors)
+      : [{ name: "Saurabh Kumar", github_link: "https://github.com/saurabhtbj1201" }])
+    : [];
+
+  const getGitHubAvatar = (githubLink?: string) => {
+    if (!githubLink) return null;
+    try {
+      const username = githubLink.replace('https://github.com/', '').replace('/', '');
+      return `https://github.com/${username}.png`;
+    } catch {
+      return null;
     }
   };
 
@@ -178,9 +204,41 @@ const ProjectDetail = () => {
               {project.name}
             </h1>
 
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <User className="h-4 w-4" />
-              <span>Saurabh Kumar</span>
+            {/* Contributors & Rating */}
+            <div className="flex items-center gap-3 flex-wrap text-sm text-muted-foreground">
+              <div className="flex items-center gap-2">
+                {contributors.length === 1 ? (
+                  <>
+                    <User className="h-4 w-4" />
+                    <span>{contributors[0].name}</span>
+                  </>
+                ) : (
+                  <>
+                    <Users className="h-4 w-4" />
+                    <div className="flex -space-x-2">
+                      {contributors.slice(0, 3).map((contributor, index) => {
+                        const avatarUrl = getGitHubAvatar(contributor.github_link);
+                        return (
+                          <Avatar key={index} className="h-8 w-8 border-2 border-background">
+                            {avatarUrl ? (
+                              <AvatarImage src={avatarUrl} alt={contributor.name} />
+                            ) : null}
+                            <AvatarFallback className="text-xs bg-primary text-primary-foreground">
+                              {contributor.name.split(' ').map(n => n[0]).join('').toUpperCase()}
+                            </AvatarFallback>
+                          </Avatar>
+                        );
+                      })}
+                      {contributors.length > 3 && (
+                        <div className="h-8 w-8 rounded-full border-2 border-background bg-muted flex items-center justify-center text-xs font-medium">
+                          +{contributors.length - 3}
+                        </div>
+                      )}
+                    </div>
+                    <span>{contributors.length} contributors</span>
+                  </>
+                )}
+              </div>
               {project.stars_rating !== null && project.stars_rating > 0 && (
                 <>
                   <span className="mx-1">·</span>
@@ -202,26 +260,30 @@ const ProjectDetail = () => {
             {/* Links + Share */}
             <div className="flex items-center gap-3 pt-2">
               {project.live_link && (
-                <a
-                  href={project.live_link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-accent text-accent-foreground font-medium text-sm hover:bg-accent/90 transition-colors"
-                >
-                  <ExternalLink className="h-4 w-4" />
-                  View Live
-                </a>
+                <CoolMode options={{ particle: "🚀" }}>
+                  <a
+                    href={project.live_link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-accent text-accent-foreground font-medium text-sm hover:bg-accent/90 transition-colors"
+                  >
+                    <ExternalLink className="h-4 w-4" />
+                    View Live
+                  </a>
+                </CoolMode>
               )}
               {project.github_link && (
-                <a
-                  href={project.github_link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-border hover:bg-muted transition-colors font-medium text-sm"
-                >
-                  <Github className="h-4 w-4" />
-                  GitHub
-                </a>
+                <CoolMode options={{ particle: "⭐" }}>
+                  <a
+                    href={project.github_link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-border hover:bg-muted transition-colors font-medium text-sm"
+                  >
+                    <Github className="h-4 w-4" />
+                    GitHub
+                  </a>
+                </CoolMode>
               )}
               <ShareButton projectName={project.name} projectId={project.id} />
             </div>
@@ -267,9 +329,8 @@ const ProjectDetail = () => {
                       <button
                         key={item.id}
                         onClick={() => scrollToHeading(item.id)}
-                        className={`block w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors ${
-                          item.level === 1 ? "font-medium" : item.level === 2 ? "pl-3" : "pl-6 text-xs"
-                        }`}
+                        className={`block w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors ${item.level === 1 ? "font-medium" : item.level === 2 ? "pl-3" : "pl-6 text-xs"
+                          }`}
                       >
                         {item.text}
                       </button>

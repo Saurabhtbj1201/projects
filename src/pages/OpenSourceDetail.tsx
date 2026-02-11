@@ -32,6 +32,7 @@ import {
     Linkedin,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { CoolMode } from "@/components/ui/cool-mode";
 
 const OpenSourceDetail = () => {
     const { slug } = useParams<{ slug: string }>();
@@ -292,23 +293,29 @@ const OpenSourceDetail = () => {
 
                         {/* Action Buttons */}
                         <div className="flex flex-col gap-3">
-                            <Button size="lg" className="w-full text-base" onClick={() => setShowPRForm(true)}>
-                                <Rocket className="mr-2 h-5 w-5" />
-                                Contribute Now
-                            </Button>
-                            <Button variant="outline" size="lg" className="w-full" asChild>
-                                <a href={project.github_repo_link} target="_blank" rel="noopener noreferrer">
-                                    <ExternalLink className="mr-2 h-5 w-5" />
-                                    View on GitHub
-                                </a>
-                            </Button>
-                            {project.doc_link && (
+                            <CoolMode options={{ particle: "🚀" }}>
+                                <Button size="lg" className="w-full text-base" onClick={() => setShowPRForm(true)}>
+                                    <Rocket className="mr-2 h-5 w-5" />
+                                    Contribute Now
+                                </Button>
+                            </CoolMode>
+                            <CoolMode options={{ particle: "⭐" }}>
                                 <Button variant="outline" size="lg" className="w-full" asChild>
-                                    <a href={project.doc_link} target="_blank" rel="noopener noreferrer">
-                                        <FileText className="mr-2 h-5 w-5" />
-                                        Documentation
+                                    <a href={project.github_repo_link} target="_blank" rel="noopener noreferrer">
+                                        <ExternalLink className="mr-2 h-5 w-5" />
+                                        View on GitHub
                                     </a>
                                 </Button>
+                            </CoolMode>
+                            {project.doc_link && (
+                                <CoolMode options={{ particle: "📘" }}>
+                                    <Button variant="outline" size="lg" className="w-full" asChild>
+                                        <a href={project.doc_link} target="_blank" rel="noopener noreferrer">
+                                            <FileText className="mr-2 h-5 w-5" />
+                                            Documentation
+                                        </a>
+                                    </Button>
+                                </CoolMode>
                             )}
                         </div>
 

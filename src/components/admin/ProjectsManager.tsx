@@ -18,6 +18,7 @@ import CategorySelect from "./CategorySelect";
 import StarRatingInput from "./StarRatingInput";
 import RichTextEditor from "./RichTextEditor";
 import ImageUpload from "./ImageUpload";
+import ContributorsInput, { Contributor } from "./ContributorsInput";
 
 interface ProjectsManagerProps {
   projects: Project[];
@@ -45,6 +46,7 @@ const ProjectsManager = ({ projects, onRefresh }: ProjectsManagerProps) => {
     category: "",
     images: [] as string[],
     image_descriptions: [] as string[],
+    contributors: [{ name: "Saurabh Kumar", github_link: "https://github.com/saurabhtbj1201" }] as Contributor[],
   });
 
   const resetForm = () => {
@@ -60,6 +62,7 @@ const ProjectsManager = ({ projects, onRefresh }: ProjectsManagerProps) => {
       category: "",
       images: [],
       image_descriptions: [],
+      contributors: [{ name: "Saurabh Kumar", github_link: "https://github.com/saurabhtbj1201" }],
     });
     setEditingProject(null);
   };
@@ -80,6 +83,13 @@ const ProjectsManager = ({ projects, onRefresh }: ProjectsManagerProps) => {
       category: project.category,
       images: project.images || [],
       image_descriptions: projectWithDescriptions.image_descriptions || [],
+      contributors: Array.isArray((project as any).contributors)
+        ? (project as any).contributors
+        : (typeof (project as any).contributors === 'string' && (project as any).contributors)
+          ? ((project as any).contributors.startsWith('[')
+            ? JSON.parse((project as any).contributors)
+            : [{ name: (project as any).contributors, github_link: "" }])
+          : [{ name: "Saurabh Kumar", github_link: "https://github.com/saurabhtbj1201" }],
     });
     setIsDialogOpen(true);
   };
@@ -101,6 +111,7 @@ const ProjectsManager = ({ projects, onRefresh }: ProjectsManagerProps) => {
         category: formData.category.trim(),
         images: formData.images,
         image_descriptions: formData.image_descriptions,
+        contributors: formData.contributors,
       };
 
       if (editingProject) {
@@ -323,6 +334,18 @@ const ProjectsManager = ({ projects, onRefresh }: ProjectsManagerProps) => {
                   onChange={(e) => setFormData({ ...formData, tech_stack: e.target.value })}
                   placeholder="React, Node.js, MongoDB, TypeScript"
                 />
+              </div>
+
+              {/* Contributors */}
+              <div className="space-y-2">
+                <Label>Contributors</Label>
+                <ContributorsInput
+                  contributors={formData.contributors}
+                  onChange={(contributors) => setFormData({ ...formData, contributors })}
+                />
+                <p className="text-xs text-muted-foreground">
+                  Add project collaborators with their GitHub profiles for avatar display.
+                </p>
               </div>
 
               {/* Image Upload with Descriptions */}

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
 import AdminLoginModal from "./AdminLoginModal";
 import { useNavigate, useLocation, Link } from "react-router-dom";
+import { CoolMode } from "@/components/ui/cool-mode";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,7 +18,7 @@ const Header = () => {
     const savedTheme = localStorage.getItem("theme");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const shouldBeDark = savedTheme === "dark" || (!savedTheme && prefersDark);
-    
+
     setIsDark(shouldBeDark);
     if (shouldBeDark) {
       document.documentElement.classList.add("dark");
@@ -27,7 +28,7 @@ const Header = () => {
   const toggleTheme = () => {
     const newTheme = !isDark;
     setIsDark(newTheme);
-    
+
     if (newTheme) {
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");
@@ -69,70 +70,86 @@ const Header = () => {
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-2">
-              <Link to="/" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">
-                Projects
-              </Link>
-              <a 
-                href="https://www.gu-saurabh.site/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all"
-              >
-                Portfolio
-              </a>
-              <Link to="/about" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">
-                About
-              </Link>
+              <CoolMode options={{ particle: "📚" }}>
+                <Link to="/" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">
+                  Projects
+                </Link>
+              </CoolMode>
+              <CoolMode options={{ particle: "🌟" }}>
+                <a
+                  href="https://www.gu-saurabh.site/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all"
+                >
+                  Portfolio
+                </a>
+              </CoolMode>
+              <CoolMode options={{ particle: "👤" }}>
+                <Link to="/about" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">
+                  About
+                </Link>
+              </CoolMode>
             </nav>
 
             {/* Actions */}
             <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
-              <button
-                onClick={toggleTheme}
-                className="p-1.5 sm:p-2 rounded-full hover:bg-muted/60 transition-all"
-                aria-label="Toggle theme"
-              >
-                {isDark ? (
-                  <Sun className="h-4 w-4 sm:h-5 sm:w-5" />
-                ) : (
-                  <Moon className="h-4 w-4 sm:h-5 sm:w-5" />
-                )}
-              </button>
-              
-              <a
-                href="https://github.com/saurabhtbj1201"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hidden md:flex items-center gap-2 bg-muted hover:bg-muted/80 text-foreground rounded-full px-4 py-2 transition-all"
-              >
-                <Github className="h-4 w-4" />
-                <span className="text-sm font-medium">GitHub</span>
-              </a>
+              <CoolMode options={{ particle: isDark ? "☀️" : "🌙" }}>
+                <button
+                  onClick={toggleTheme}
+                  className="p-1.5 sm:p-2 rounded-full hover:bg-muted/60 transition-all"
+                  aria-label="Toggle theme"
+                >
+                  {isDark ? (
+                    <Sun className="h-4 w-4 sm:h-5 sm:w-5" />
+                  ) : (
+                    <Moon className="h-4 w-4 sm:h-5 sm:w-5" />
+                  )}
+                </button>
+              </CoolMode>
+
+              <CoolMode options={{ particle: "🚀" }}>
+                <a
+                  href="https://github.com/saurabhtbj1201"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hidden md:flex items-center gap-2 bg-muted hover:bg-muted/80 text-foreground rounded-full px-4 py-2 transition-all"
+                >
+                  <Github className="h-4 w-4" />
+                  <span className="text-sm font-medium">GitHub</span>
+                </a>
+              </CoolMode>
 
               {user && isAdmin ? (
                 <div className="hidden md:flex items-center gap-2">
-                  <Button 
-                    onClick={() => navigate("/admin")}
-                    className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 py-2"
-                  >
-                    Dashboard
-                  </Button>
-                  <Button 
-                    onClick={handleLogout}
-                    variant="outline"
-                    className="rounded-full px-4 py-2"
-                  >
-                    <LogOut className="h-4 w-4" />
-                  </Button>
+                  <CoolMode options={{ particle: "📦" }}>
+                    <Button
+                      onClick={() => navigate("/admin")}
+                      className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 py-2"
+                    >
+                      Dashboard
+                    </Button>
+                  </CoolMode>
+                  <CoolMode options={{ particle: "🚪" }}>
+                    <Button
+                      onClick={handleLogout}
+                      variant="outline"
+                      className="rounded-full px-4 py-2"
+                    >
+                      <LogOut className="h-4 w-4" />
+                    </Button>
+                  </CoolMode>
                 </div>
               ) : (
-                <Button 
-                  onClick={handleAdminClick}
-                  className="hidden md:flex bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 py-2"
-                >
-                  <Lock className="h-4 w-4 mr-2" />
-                  Admin
-                </Button>
+                <CoolMode options={{ particle: "🔒" }}>
+                  <Button
+                    onClick={handleAdminClick}
+                    className="hidden md:flex bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 py-2"
+                  >
+                    <Lock className="h-4 w-4 mr-2" />
+                    Admin
+                  </Button>
+                </CoolMode>
               )}
 
               {/* Mobile Menu Button */}
@@ -153,9 +170,9 @@ const Header = () => {
                 <Link to="/" className="text-sm font-medium hover:text-accent transition-colors" onClick={() => setIsMenuOpen(false)}>
                   Projects
                 </Link>
-                <a 
-                  href="https://www.gu-saurabh.site/" 
-                  target="_blank" 
+                <a
+                  href="https://www.gu-saurabh.site/"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm font-medium hover:text-accent transition-colors"
                 >
@@ -175,13 +192,13 @@ const Header = () => {
                 </a>
                 {user && isAdmin ? (
                   <>
-                    <Button 
+                    <Button
                       onClick={() => { navigate("/admin"); setIsMenuOpen(false); }}
                       className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full w-full"
                     >
                       Dashboard
                     </Button>
-                    <Button 
+                    <Button
                       onClick={handleLogout}
                       variant="outline"
                       className="rounded-full w-full"
@@ -191,7 +208,7 @@ const Header = () => {
                     </Button>
                   </>
                 ) : (
-                  <Button 
+                  <Button
                     onClick={() => { handleAdminClick(); setIsMenuOpen(false); }}
                     className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full w-full"
                   >
@@ -204,7 +221,7 @@ const Header = () => {
           )}
         </div>
       </header>
-      
+
       <AdminLoginModal open={showLoginModal} onOpenChange={setShowLoginModal} />
     </>
   );

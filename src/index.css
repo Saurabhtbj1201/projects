@@ -150,6 +150,36 @@ All colors MUST be HSL.
   h6 {
     @apply font-serif tracking-tight;
   }
+
+  /* Custom text selection colors */
+  ::selection {
+    background-color: hsl(220 20% 14%);
+    /* Black background */
+    color: hsl(0 0% 100%);
+    /* White text */
+  }
+
+  ::-moz-selection {
+    background-color: hsl(220 20% 14%);
+    /* Black background */
+    color: hsl(0 0% 100%);
+    /* White text */
+  }
+
+  /* Dark mode selection colors */
+  .dark ::selection {
+    background-color: hsl(0 0% 100%);
+    /* White background */
+    color: hsl(220 20% 14%);
+    /* Black text */
+  }
+
+  .dark ::-moz-selection {
+    background-color: hsl(0 0% 100%);
+    /* White background */
+    color: hsl(220 20% 14%);
+    /* Black text */
+  }
 }
 
 @layer utilities {

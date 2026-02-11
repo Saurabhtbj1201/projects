@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import Header from "@/components/Header";
-import ProjectCard from "@/components/ProjectCard";
+import ProjectCardFull from "@/components/ProjectCardFull";
 import OpenSourceProjectCard from "@/components/OpenSourceProjectCard";
 import SEOHead from "@/components/SEOHead";
 import { supabase } from "@/integrations/supabase/client";
 import { Project, SiteSettings, OpenSourceProject } from "@/types/project";
 import { Loader2 } from "lucide-react";
+import { CoolMode } from "@/components/ui/cool-mode";
 
 const Index = () => {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -54,13 +55,15 @@ const Index = () => {
 
       <main>
         {/* Hero Section */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold font-serif tracking-tight mb-6 animate-slide-up">
-            {siteSettings?.site_name || "My Projects"}
-          </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto animate-slide-up stagger-1">
-            {siteSettings?.site_description || "A collection of my work showcasing web development, design, and problem-solving skills across various technologies."}
-          </p>
+        <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 text-center overflow-hidden">
+          <div className="relative z-10">
+            <h1 className="text-4xl md:text-6xl font-bold font-serif tracking-tight mb-6 animate-slide-up">
+              {siteSettings?.site_name || "My Projects"}
+            </h1>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto animate-slide-up stagger-1">
+              {siteSettings?.site_description || "A collection of my work showcasing web development, design, and problem-solving skills across various technologies."}
+            </p>
+          </div>
         </section>
 
         {/* Open Source Projects Section - Full Width with Highlighted Background */}
@@ -92,56 +95,62 @@ const Index = () => {
         )}
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          {/* My Projects Section Title */}
+          <section className="text-center mb-12 animate-slide-up stagger-3">
+            <h2 className="text-3xl md:text-4xl font-bold mb-3">
+              My Projects
+            </h2>
+            <p className="text-muted-foreground max-w-4xl mx-auto">
+              Explore a diverse collection of projects showcasing innovative solutions across various domains and technologies.
+            </p>
+          </section>
+
           {/* Category Filters */}
           {categories.length > 0 && (
-            <section className="mb-12 animate-slide-up stagger-3">
+            <section className="mb-12 animate-slide-up stagger-4">
               <div className="flex flex-wrap justify-center gap-3">
-                <button
-                  onClick={() => setSelectedCategory("all")}
-                  className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${selectedCategory === "all"
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-muted hover:bg-muted/80 text-foreground"
-                    }`}
-                >
-                  All Projects
-                </button>
-                {categories.map((category) => (
+                <CoolMode options={{ particle: "✨" }}>
                   <button
-                    key={category}
-                    onClick={() => setSelectedCategory(category)}
-                    className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${selectedCategory === category
+                    onClick={() => setSelectedCategory("all")}
+                    className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${selectedCategory === "all"
                       ? "bg-primary text-primary-foreground"
                       : "bg-muted hover:bg-muted/80 text-foreground"
                       }`}
                   >
-                    {category}
+                    All Projects
                   </button>
+                </CoolMode>
+                {categories.map((category) => (
+                  <CoolMode key={category} options={{ particle: "🎯" }}>
+                    <button
+                      onClick={() => setSelectedCategory(category)}
+                      className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${selectedCategory === category
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-muted hover:bg-muted/80 text-foreground"
+                        }`}
+                    >
+                      {category}
+                    </button>
+                  </CoolMode>
                 ))}
               </div>
             </section>
           )}
 
-          {/* Regular Projects Grid */}
+          {/* Regular Projects List - Alternating Layout */}
           <section className="pb-20">
             {isLoading ? (
               <div className="flex items-center justify-center py-20">
                 <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
               </div>
             ) : filteredProjects.length > 0 ? (
-              <>
-                <div className="text-center mb-8">
-                  <h2 className="text-3xl md:text-4xl font-bold mb-3">
-                    My Projects
-                  </h2>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {filteredProjects.map((project, index) => (
-                    <div key={project.id} className={`animate-slide-up stagger-${Math.min(index + 1, 6)}`}>
-                      <ProjectCard project={project} />
-                    </div>
-                  ))}
-                </div>
-              </>
+              <div className="space-y-24">
+                {filteredProjects.map((project, index) => (
+                  <div key={project.id} className={`animate-slide-up stagger-${Math.min(index + 1, 6)}`}>
+                    <ProjectCardFull project={project} imageOnLeft={index % 2 === 0} />
+                  </div>
+                ))}
+              </div>
             ) : (
               <div className="text-center py-20">
                 <p className="text-muted-foreground text-lg">

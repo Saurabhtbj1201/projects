@@ -31,7 +31,7 @@ const AdminLoginModal = ({ open, onOpenChange }: AdminLoginModalProps) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrors({});
-    
+
     const result = loginSchema.safeParse({ email, password });
     if (!result.success) {
       const fieldErrors: { email?: string; password?: string } = {};
@@ -44,10 +44,10 @@ const AdminLoginModal = ({ open, onOpenChange }: AdminLoginModalProps) => {
     }
 
     setIsLoading(true);
-    
+
     try {
       const { error } = await signIn(email, password);
-      
+
       if (error) {
         toast({
           title: "Login failed",
